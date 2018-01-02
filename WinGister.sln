@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinGister.TestApplication", "WinGister.TestApplication\WinGister.TestApplication.csproj", "{651B01AA-D7FF-4594-AC8A-EEF3D9DCCC6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinGister.Shell", "WinGister.Shell\WinGister.Shell.csproj", "{2E7EEE14-D475-4E29-B140-AFD213E01171}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{651B01AA-D7FF-4594-AC8A-EEF3D9DCCC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{651B01AA-D7FF-4594-AC8A-EEF3D9DCCC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{651B01AA-D7FF-4594-AC8A-EEF3D9DCCC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{651B01AA-D7FF-4594-AC8A-EEF3D9DCCC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7EEE14-D475-4E29-B140-AFD213E01171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7EEE14-D475-4E29-B140-AFD213E01171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7EEE14-D475-4E29-B140-AFD213E01171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7EEE14-D475-4E29-B140-AFD213E01171}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9111B6DC-5EF3-4B4E-A7FB-24809170E36C}
+	EndGlobalSection
+EndGlobal
