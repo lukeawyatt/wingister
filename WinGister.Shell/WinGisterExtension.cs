@@ -24,7 +24,9 @@ namespace WinGister.Shell
     {
 
         private string _BaseGitHubApiUrl = "https://api.github.com";
-        private ContextMenuStrip contextMenu = new ContextMenuStrip();
+        private ContextMenuStrip _ContextMenu = new ContextMenuStrip();
+        private DateTime _LastRefresh = DateTime.MinValue;
+
 
         #region : CONTEXT MENU OVERRIDES
 
@@ -34,8 +36,10 @@ namespace WinGister.Shell
         // <returns><c>true</c> if item can be shown for the selected item for this instance.; otherwise, <c>false</c>.</returns>
         protected override bool CanShowMenu()
         {
-            if (contextMenu == null)
+            /* REFRESH THE MENU IF OUR CONTEXT MENU HAS BEEN LOST OR IF THE LAST REFRESH WAS OVER 15 MINUTES AGO */
+            if ((_ContextMenu == null) || (DateTime.Compare(DateTime.Now.AddMinutes(-15), _LastRefresh) > 0) || (_ContextMenu.Items.Count == 0))
                 RefreshMenu();
+
             return true;
         }
 
@@ -45,7 +49,11 @@ namespace WinGister.Shell
         // <returns>The context menu for the shell context menu.</returns>
         protected override ContextMenuStrip CreateMenu()
         {
-            contextMenu.Items.Clear();
+            /* PREVENT EXCESSIVE API CALLS, LIMIT TO EVERY 15 MINUTES */
+            if ((_ContextMenu != null) && (_ContextMenu.Items.Count > 0) && (DateTime.Compare(DateTime.Now.AddMinutes(-15), _LastRefresh) < 0))
+                return _ContextMenu;
+            
+            _ContextMenu.Items.Clear();
 
             ToolStripMenuItem MainMenu;
             MainMenu = new ToolStripMenuItem
@@ -93,9 +101,10 @@ namespace WinGister.Shell
                 });
             }
 
-            contextMenu.Items.Clear();
-            contextMenu.Items.Add(MainMenu);
-            return contextMenu;
+            _ContextMenu.Items.Clear();
+            _ContextMenu.Items.Add(MainMenu);
+            _LastRefresh = DateTime.Now;
+            return _ContextMenu;
         }
 
         #endregion
@@ -108,8 +117,8 @@ namespace WinGister.Shell
         // </summary>
         private void RefreshMenu()
         {
-            contextMenu.Dispose();
-            contextMenu = CreateMenu();
+            _ContextMenu.Dispose();
+            _ContextMenu = CreateMenu();
         }
 
         /// <summary>

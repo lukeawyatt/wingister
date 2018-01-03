@@ -8,6 +8,9 @@ namespace WinGister.TestApplication
 
         public static void Main(string[] args)
         {
+            DateTime _LastRefresh = DateTime.MinValue;
+            var x = DateTime.Compare(DateTime.Now.AddMinutes(-15), _LastRefresh);
+
             WinGisterExtension client = new WinGisterExtension();
             var gistResponse = client.GetGistList("lukeawyatt");
 
