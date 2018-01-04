@@ -66,7 +66,8 @@ namespace WinGister.Shell
 
             GistResponse gistResp = GetGistList(user);
             if (gistResp.Success)
-            { 
+            {
+                gistResp.Gists.Sort((x, y) => x.Description.CompareTo(y.Description));
 
                 foreach (var gist in gistResp.Gists)
                 {
@@ -75,6 +76,8 @@ namespace WinGister.Shell
                         Text = gist.Description,
                         Image = Properties.Resources.BranchIcon
                     };
+
+                    gist.Files.Sort((x, y) => x.FileName.CompareTo(y.FileName));
 
                     foreach (var file in gist.Files)
                     {
