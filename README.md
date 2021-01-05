@@ -20,4 +20,3 @@ This project was built to add a context menu to the Window's shell that expands 
 
 ## ToDo
 * Create simple installer
-* Explore changing menu to popup manager instead - due to issue with shell web access
