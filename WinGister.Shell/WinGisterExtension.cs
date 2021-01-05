@@ -191,8 +191,14 @@ namespace WinGister.Shell
 
             var client = new RestClient(_BaseGitHubApiUrl);
 
+            System.Net.ServicePointManager.SecurityProtocol = 
+                System.Net.SecurityProtocolType.Tls12 | 
+                System.Net.SecurityProtocolType.Tls11 | 
+                System.Net.SecurityProtocolType.Tls11;
+
             var request = new RestRequest("users/{username}/gists", Method.GET);
             request.AddUrlSegment("username", publicUsername);
+            request.AddHeader("Accept", "application/vnd.github.v3+json");
 
             IRestResponse response = client.Execute(request);
             var content = response.Content;
@@ -201,7 +207,7 @@ namespace WinGister.Shell
                 return new GistResponse()
                 {
                     Success = false,
-                    Message = "Internal error...",
+                    Message = "Internal error here...",
                     Gists = null
                 };
 
@@ -238,6 +244,11 @@ namespace WinGister.Shell
         /// <returns>The file content as a string, <c>NULL</c> on error</returns>
         public string GetGist(string gistRawUrl)
         {
+            System.Net.ServicePointManager.SecurityProtocol =
+                System.Net.SecurityProtocolType.Tls12 |
+                System.Net.SecurityProtocolType.Tls11 |
+                System.Net.SecurityProtocolType.Tls11;
+
             var client = new RestClient(gistRawUrl);
 
             var request = new RestRequest(Method.GET);
