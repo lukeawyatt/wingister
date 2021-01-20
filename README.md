@@ -20,3 +20,4 @@ This project was built to add a context menu to the Window's shell that expands 
 
 ## ToDo
 * Create simple installer
+* Handle private gists
