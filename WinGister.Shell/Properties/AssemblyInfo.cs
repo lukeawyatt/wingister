@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WinGister")]
 [assembly: AssemblyProduct("WinGister.Shell")]
-[assembly: AssemblyCopyright("Copyright © 2022 Luke Wyatt")]
+[assembly: AssemblyCopyright("Copyright © 2023 Luke Wyatt")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(true)]
